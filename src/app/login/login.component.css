@@ -1,0 +1,113 @@
+.contact {
+    padding: 50px 0;
+    text-align: center;
+    margin-top: 50px; /* Adds space between the contact section and the header */
+    margin-bottom: 50px; /* Adds space between the contact section and the footer */
+}
+
+.contact .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow effect */
+    background-color: #fff; /* Adds a background color */
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto; 
+}
+
+.contact-form-container {
+    width: 100%; 
+    padding: 20px;
+}
+
+.contact-form {
+    width: 100%; 
+    max-width: 600px;
+    margin: 0 auto; 
+}
+
+.form-group {
+    position: relative; /* Add this to position the error message absolutely within the form group */
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%; /* Set to 100% of the form-group */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.form-group .fa {
+    position: absolute;
+    right: 10px; /* Position icon to the right inside the input field */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Center vertically */
+    cursor: pointer;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: MediumSeaGreen;
+    outline: none;
+}
+
+.forgot-password {
+    display: block; /* Ensures it appears below the button */
+    color: green;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 15px;
+    text-align: center; /* Center align the text */
+}
+
+button[type="submit"] {
+    background-color: #32CD32;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    display: block; /* Makes the button a block element */
+    margin: 0 auto 10px; /* Center button and add space above 'forgot password' link */
+}
+
+button[type="submit"]:hover {
+    background-color: #068e06;
+}
+
+.contact h4 {
+   margin-bottom: 40px;
+    text-align: left;
+    color: green; /* Changes the color to green */
+    padding-left: 0px; /* Adds spacing to the left */
+}
+.error-message {
+    color: red;
+    font-size: 0.875rem; /* Adjust the font size as needed */
+    display: block; /* Makes the small tag display as a block */
+    margin-top: 5px;
+    position: absolute; /* Position absolutely within the form-group */
+    bottom: -20px; /* Position below the input */
+    left: 0; /* Align to the left */
+    width: 100%; /* Ensure the width matches the input */
+}

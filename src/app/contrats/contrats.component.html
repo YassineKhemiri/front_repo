@@ -1,0 +1,115 @@
+<!-- <div class="container-sidebar">
+
+    <div class="sidebar">
+        <ul>
+            <li><a href="/contrat" routerLink="/contrat/{{id}}">mes contrats</a></li>
+            <li><a href="/reclamation" routerLink="/reclamation">Reclamation</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="page">
+            <div class="containerListe">
+                <h1>Mes Contrats</h1>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Num Contrat</th>
+                                <th>Code Branche</th>
+                                <th>Libelle Branche</th>
+                                <th>Date d'effet</th>
+                                <th>Date fin d'effet</th>
+                                <th>Prix</th>
+                                <th>Date de paiement</th>
+                                <th>Référencement</th>
+                                <th>Statut de paiement</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let contrat of contrats">
+                                <td>{{contrat.numContrat}}</td>
+                                <td>{{contrat.branche.codeBranche}}</td>
+                                <td>{{contrat.branche.libelleBranche}}</td>
+                                <td>{{contrat.date_effet}}</td>
+                                <td>{{contrat.date_fin_effet}}</td>
+                                <td>{{contrat.prix}}</td>
+                                <td>{{contrat.date_paiement}}</td>
+                                <td>{{contrat.referencement}}</td>
+                                <td>
+                                    {{ contrat.paye ? 'payé' : 'non payé' }}
+                                </td>
+                                <td>
+                                    <button *ngIf="!contrat.paye" (click)="payForContrat(contrat.id)">Pay</button>
+                                  </td>
+                            </tr>
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ -->
+
+
+<!-- <div class="courses-container">
+	<div class="course" *ngFor="let contrat of contrats">
+		<div class="course-preview">
+			<h6>{{contrat.branche.libelleBranche}}</h6>
+			<h2>{{contrat.numContrat}}</h2>
+			<a href="#">View all chapters <i class="fas fa-chevron-right"></i></a>
+		</div>
+		<div class="course-info">
+			<div class="progress-container">
+				<div class="progress"></div>
+				<span  class="progress-text">
+					{{contrat.referencement}}</span>
+				<span  class="progress-text">
+					{{ contrat.paye ? 'payé' : 'non payé' }}</span>
+			</div>
+			<h4>{{contrat.branche.libelleBranche}}</h4>
+			<h4>Date Effet :{{contrat.date_effet | date: 'dd/MM/yyyy' }}</h4>
+			<h4>Date fin effet :{{contrat.date_fin_effet | date: 'dd/MM/yyyy' }}</h4>
+			<button class="btn" *ngIf="!contrat.paye" (click)="payForContrat(contrat.id)">Payer</button>
+			<button class="btn" *ngIf="contrat.paye" (click)=navigate(contrat.id)>Imprimer</button>
+
+		</div>
+	</div>
+
+	
+</div> -->
+
+
+<div class="courses-container">
+	<div *ngIf="!contrats || contrats.length === 0">
+	  <p>Aucun contrat disponible</p>
+	</div>
+	<div *ngIf="contrats && contrats.length > 0">
+	  <div class="course" *ngFor="let contrat of contrats">
+		<div class="course-preview">
+		  <h6>{{ contrat.branche.libelleBranche }}</h6>
+		  <h2>{{ contrat.numContrat }}</h2>
+		  <a href="#">View all chapters <i class="fas fa-chevron-right"></i></a>
+		</div>
+		<div class="course-info">
+		  <div class="progress-container">
+			<div class="progress"></div>
+			<span class="progress-text">{{ contrat.referencement }} </span>
+			<span class="progress-text">{{ contrat.paye ? 'payé' : 'non payé' }}</span>
+		  </div>
+		  <h4>{{ contrat.branche.libelleBranche }}</h4>
+		  <h4>Date Effet : {{ contrat.date_effet | date: 'dd/MM/yyyy' }}</h4>
+		  <h4>Date fin effet : {{ contrat.date_fin_effet | date: 'dd/MM/yyyy' }}</h4>
+		  <button class="btn" *ngIf="!contrat.paye" (click)="payForContrat(contrat.id)">Payer</button>
+		  <button class="btn" *ngIf="contrat.paye" (click)="navigate(contrat.id)">Imprimer</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+  
+

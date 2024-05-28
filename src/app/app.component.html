@@ -1,0 +1,56 @@
+<app-sidebar *ngIf="showAdminBoard" ></app-sidebar>
+  <header *ngIf="!showAdminBoard" >
+    <div class="logo">
+        <a href="/">
+            <img src="../assets/img/logo_mae.png" width="200" height="50" alt="MAE Assurances">
+        </a>
+    </div>
+    <nav  >
+        <ul routerLinkActive="active">
+            <!-- Admin Board visible only to admins -->
+            <!-- Home and Contact visible to regular users -->
+            <li *ngIf="isLoggedIn && !showAdminBoard">
+                <a href="/home" routerLink="home">Home</a>
+            </li>
+            <li *ngIf="isLoggedIn && !showAdminBoard">
+                <a href="/contact" routerLink="contact">Contact</a>
+
+            </li>
+            <li *ngIf="isLoggedIn && !showAdminBoard">
+                <a href="/reclamation" routerLink="reclamation">Reclamation</a>
+            </li>
+            <li *ngIf="isLoggedIn && !showAdminBoard">
+                <a href="/my-reclamtions" routerLink="my-reclamations">Mes reclamations</a>
+            </li>
+            <li ><a href="/contrat" *ngIf="isLoggedIn"  routerLink="contrat/{{id}}">contrat</a></li>
+            <!-- Sign Up and Login visible only when not logged in -->
+            <ul *ngIf="!isLoggedIn">
+                <li><a href="/agences" routerLink="agences">Notre Réseau</a></li>
+				<li><a href="/home" routerLink="home">Home</a></li>
+			<li><a href="/contact" routerLink="contact">Contact</a></li>
+                <li><a href="/register" routerLink="register">Sign Up</a></li>
+                <li><a href="/login" routerLink="login">Login</a></li>
+            </ul>
+
+            <!-- Logout visible to all logged-in users -->
+            <ul *ngIf="isLoggedIn && !showAdminBoard">
+                <li><a href="#" (click)="logout()">LogOut</a></li>
+            </ul>
+        </ul>
+    </nav>
+    <!-- Profile image visible to all logged-in users -->
+    <div *ngIf="isLoggedIn" class="profile">
+      <a href="/profile" routerLink="profile">
+        <img *ngIf="safeImage; else defaultIcon" [src]="safeImage" alt="User Profile">
+        <ng-template #defaultIcon>
+          <img src="../assets/img/icon_user.jpg" alt="User Profile">
+        </ng-template>
+      </a>
+    </div>
+</header>
+
+
+<router-outlet></router-outlet>
+
+<app-footer *ngIf="!showAdminBoard"></app-footer>
+

@@ -1,0 +1,93 @@
+<section class="contact">
+    <div class="container">
+        <div class="contact-container">
+           <div class="welcome-message-container">
+        <h3>Bienvenue,</h3>
+        <p>Veuillez activer Votre Espace adhérent</p>
+        <p>Remplir le formulaire suivant
+
+            Afin de souscrire à l'MAE, veuillez saisir les informations suivantes
+            
+            </p>
+    </div>
+            <div class="contact-form-container">
+                <h2>Inscription</h2>
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" *ngIf="!isSuccessful" novalidate>
+               
+
+                  <div class="form-group">
+                        <p-floatLabel for="num">
+                            <input id="num" type="text" pInputText formControlName="num">
+                            <label for="num" >Num adhérent</label>
+                        </p-floatLabel>
+                        <small class="p-error" *ngIf="registerForm.get('num')?.touched && registerForm.get('num')?.errors?.['required']">Member number is required.</small>
+                        <small class="p-error" *ngIf="registerForm.get('num')?.errors?.['minlength'] || registerForm.get('num')?.errors?.['maxlength']">Member number must be exactly 9 characters.</small>
+                    </div>
+                    <div class="form-group">
+                        <p-floatLabel>
+                            <input id="email" type="email" pInputText formControlName="email">
+                            <label for="email">Email</label>
+                        </p-floatLabel>
+                        <small class="p-error" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']">Email is required.</small>
+                        <small class="p-error" *ngIf="registerForm.get('email')?.errors?.['email']">Email must be a valid email address.</small>
+                    </div>
+                    <div class="form-group">
+                        <p-floatLabel>
+                            <input id="cin" type="text" pInputText formControlName="cin">
+                            <label for="cin">CIN</label>
+                        </p-floatLabel>
+                        <small class="p-error" *ngIf="registerForm.get('cin')?.touched && registerForm.get('cin')?.errors?.['required']">CIN is required.</small>
+                        <small class="p-error" *ngIf="registerForm.get('cin')?.errors?.['minlength'] || registerForm.get('cin')?.errors?.['maxlength']">CIN must be exactly 8 characters.</small>
+                    </div>
+                    <div class="form-group">
+                        <span class="p-float-label">
+                            <p-password [style]="{'width':'90%'}"
+                            [inputStyle]="{'width':'90%'}"inputId="password"  formControlName="password" [feedback]="false" [toggleMask]="true"></p-password>
+                            <label for="password">Password</label>
+                        </span>
+                        
+                        <div style="color: red;"
+                            *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
+                            <small class="p-error"  *ngIf="registerForm.controls['password'].errors?.['required']">Le nouveau mot de passe est requis.</small>
+                            <small class="p-error"  *ngIf="registerForm.controls['password'].errors?.['minlength']">Le mot de passe doit contenir au moins 6 caractères.</small><br>
+                            <small class="p-error"  *ngIf="registerForm.controls['password'].errors?.['pattern']?.lowercase">Le mot de passe doit contenir au moins une lettre minuscule.</small><br>
+                            <small class="p-error" *ngIf="registerForm.controls['password'].errors?.['pattern']?.uppercase">Le mot de passe doit contenir au moins une lettre majuscule.</small><br>
+                            <small class="p-error"  *ngIf="registerForm.controls['password'].errors?.['pattern']?.number">Le mot de passe doit contenir au moins un chiffre.</small><br>
+                            <small class="p-error" *ngIf="registerForm.controls['password'].errors?.['pattern']?.specialChar">Le mot de passe doit contenir au moins un caractère spécial.</small>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <span class="p-float-label" >
+                            <p-password [toggleMask]="true" [style]="{'width':'90%'}"
+                            [inputStyle]="{'width':'90%'}" inputId="matchingPassword" formControlName="matchingPassword" [feedback]="false"  ></p-password>
+                            <label for="matchingPassword">Confirm Password</label>
+                        </span>
+                        <small class="p-error" *ngIf="registerForm.get('matchingPassword')?.touched && registerForm.get('matchingPassword')?.errors?.['required']">La confirmation du mot de passe est requise.</small>
+                        <small class="p-error" *ngIf="registerForm.get('matchingPassword')?.errors?.['mustMatch']">Les mots de passe doivent correspondre.</small>
+                        
+                    </div>
+                    <div class="form-group form-check">
+                        <p-checkbox formControlName="using2FA" binary="true" label="Use Two Step Verification"></p-checkbox>
+                    </div>
+                    <button type="submit" pButton label="Envoyer" styleClass="ui-button-success"></button>
+                    <div *ngIf="registerForm.invalid && isSignUpFailed" class="p-error">
+                        Signup failed!<br>{{ errorMessage }}
+                    </div>
+                </form>
+                <div>
+                    <br>
+                    <p>Déjà un adhérent <a [routerLink]="['/login']">Connectez-vous</a></p>
+                </div>
+                
+                <div *ngIf="isSuccessful"  class="success-message-container">
+                    Your registration is successful! We've sent you a verification mail to your email account.
+                    <div *ngIf="isUsing2FA">
+                        <p>Scan this QR code using Google Authenticator app on your phone to use it later to login</p>
+                        <img [src]="qrCodeImage" class="img-fluid" alt="QR Code for 2FA">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

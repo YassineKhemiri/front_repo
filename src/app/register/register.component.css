@@ -1,0 +1,104 @@
+.contact {
+    padding: 50px 0;
+    text-align: center;
+    margin-top: 50px; /* Add space between the contact section and the header */
+    margin-bottom: 50px; /* Add space between the contact section and the footer */
+}
+
+.contact .container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space items nicely */
+    align-items: stretch; /* Align items to stretch them to the same height */
+    padding: 0; /* No padding, to allow edge-to-edge alignment of children */
+    margin: 0 auto; /* Keep the container centered */
+    width: 100%; /* Full width to stretch across */
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between; /* Align to the start, so the message sticks to the left */
+    align-items: stretch; /* Align items to stretch them to the same height */
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    flex-direction:row; /* Ensure the internal container takes full width */
+}
+
+.welcome-message-container {
+    flex-basis: 40%; /* Adjusted to take up 30% of the space */
+    background-color: #3e8155;
+    color: #ffffff;
+    padding: 20px;
+    margin-right: 20px; /* Add some margin between message and form */
+    text-align: left;
+}
+
+.contact-form-container {
+    flex-basis: 70%; /* Adjusted to take up remaining space, about 70% */
+    padding: 20px;
+    background: #ffffff; /* Background color for the form */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Optional: Adds depth to the form */
+}
+.contact h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #0d460d;
+}
+
+/* Rest of your styles for form elements */
+
+.form-group {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Ensure that form elements take full width */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"],
+.form-group input[type="checkbox"],
+.form-group textarea,
+.p-password .p-inputtext {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+
+/* Focus styles */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: MediumSeaGreen;
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.p-floatLabel {
+    display: block;
+    margin-bottom: .5rem;
+}
+.success-message-container {
+    text-align: center;
+    margin-top: 20px; /* Adjust as needed */
+    padding: 15px;
+    background-color: #e9fbe9; /* Light green background for success */
+    color: #37a037; /* Darker green text for better readability */
+    margin: 50px; /* Remove default paragraph margin */
+    padding: 20px
+    
+}
+
+
+

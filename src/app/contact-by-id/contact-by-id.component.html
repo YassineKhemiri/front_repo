@@ -1,0 +1,46 @@
+<!-- NAVBAR -->
+<section id="content">
+    <!-- MAIN -->
+    <main>
+        <h1 class="title">Dashboard</h1>
+        <ul class="breadcrumbs">
+            <li><a href="#">Contact</a></li>
+            <li class="divider">/</li>
+            <li><a href="#" class="active">Dashboard</a></li>
+        </ul>
+
+        <div class="data">
+            <div class="content-data">
+                <div class="page">
+                    <div class="containerReclamation">
+                        <h2>Contact</h2>
+                        <form>
+                            <label for="text">Nom</label>
+                            <div>
+                                <input type="text" name="code" [(ngModel)]="contact.nom" readonly />
+                            </div>
+
+                            <label for="libelle">Email</label>
+                            <div>
+                                <input type="text" name="email" [(ngModel)]="contact.email" readonly />
+                            </div>
+
+                            <label for="libelle">Message</label>
+                            <div>
+                                <textarea  id="contenu" name="contenu" [(ngModel)]="contact.message" readonly></textarea>
+                            </div>
+
+                            <label for="libelle">Date</label>
+                            <div>
+                                <input type="text" name="date" [(ngModel)]="contact.date" readonly />
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</section>

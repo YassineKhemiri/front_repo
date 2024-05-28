@@ -1,0 +1,52 @@
+
+
+<!-- NAVBAR -->
+<section id="content">
+
+    <!-- MAIN -->
+    <main>
+        <h1 class="title">Dashboard</h1>
+        <ul class="breadcrumbs">
+            <li><a href="#">Contacts</a></li>
+            <li class="divider">/</li>
+            <li><a href="#" class="active">Dashboard</a></li>
+        </ul>
+
+        <div class="data">
+            <div class="content-data">
+                <div class="containerListe">
+                    <h1>Liste Contacts</h1>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Id branche</th>
+                                    <th>Nom</th>
+                                    <th>Email</th>
+                                    <th>Date</th>
+                                    <th>voir</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let contact of contacts" >
+                                    <td>{{contact.id}}</td>
+                                    <td>{{contact.nom}}</td>
+                                    <td>{{contact.message}}</td>
+                                    <td>{{contact.date | date: 'dd/MM/yyyy'}}</td>
+                                    <td><i  (click)=navigate(contact.id) class="icon-pencil bi bi-eye-fill"></i></td>
+                                </tr>
+                                <!-- Ajoutez d'autres lignes de branches ici si nécessaire -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- MAIN -->
+</section>
+<!-- NAVBAR -->
+
+
+

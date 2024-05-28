@@ -1,0 +1,26 @@
+<div class="container-sidebar">
+    <div class="sidebar">
+        <ul>
+            <li><a href="../updateImage" routerLink="../updateImage">photo</a></li>
+            <li><a href="../updateInformations" routerLink="../updateInformations">Informations personnelles</a></li>
+            <li><a href="../updatePassword" routerLink="../updatePassword">Mot de Passe</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <!-- Gestion d'Image Page -->
+        <div id="gestion-image" class="page">
+            <h2>modifier photo</h2>
+            <div class="containerReclamation">
+                <form (ngSubmit)="onSubmit(produitForm)" #produitForm="ngForm" >
+                    <div>
+                        <label for="fichier">choisir une image :</label>
+                        <input type="file" id="image" name="image" [(ngModel)]="user.image" (change)="onFileChange($event)" accept="image/*">
+                    </div>
+                    <div>
+                        <button type="submit">Envoyer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

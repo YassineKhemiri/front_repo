@@ -1,0 +1,28 @@
+<section id="advertisers" class="advertisers-service-sec pt-5 pb-5">
+  <div class="container">
+    <div class="row">
+      <div class="section-header text-center">
+        <h2 class="fw-bold fs-1">
+          Nos
+          <span class="b-class-secondary">MAE </span>Produits
+        </h2>
+        <p class="sec-icon"><i class="fa-solid fa-gear"></i></p>
+      </div>
+    </div>
+    <div class="row mt-5 mt-md-4 row-cols-1 row-cols-sm-1 row-cols-md-3 justify-content-center">
+      <div class="col" *ngFor="let i of produits">
+        <a style="text-decoration: none;" [routerLink]="['/produit/',i.id]">
+          <div class="service-card">
+            <div class="icon-wrapper">
+              <img [src]="getSafeIcon(i.icon)" width="70" height="50" alt="Icon">
+            </div>
+            <h3>{{i.nom}}</h3>
+
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ADVERTISERS SERVICE CARD ENDED -->
