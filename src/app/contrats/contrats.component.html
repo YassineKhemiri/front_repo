@@ -81,7 +81,7 @@
 		</div>
 	</div>
 
-	
+
 </div> -->
 
 
@@ -106,10 +106,11 @@
 		  <h4>Date Effet : {{ contrat.date_effet | date: 'dd/MM/yyyy' }}</h4>
 		  <h4>Date fin effet : {{ contrat.date_fin_effet | date: 'dd/MM/yyyy' }}</h4>
 		  <button class="btn" *ngIf="!contrat.paye" (click)="payForContrat(contrat.id)">Payer</button>
+      <button class="btn" *ngIf="needsRenewal(contrat)" (click)="renewContract(contrat.id)">Renouveler</button>
 		  <button class="btn" *ngIf="contrat.paye" (click)="navigate(contrat.id)">Imprimer</button>
 		</div>
 	  </div>
 	</div>
   </div>
-  
+
 

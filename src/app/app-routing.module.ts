@@ -39,12 +39,15 @@ import { ContratByIdComponent } from './contrat-by-id/contrat-by-id.component';
 import { ListeUserVerifieComponent } from './liste-user-verifie/liste-user-verifie.component';
 import { ListeUserNonVerifieComponent } from './liste-user-non-verifie/liste-user-non-verifie.component';
 import { ListeUserDesactivesComponent } from './liste-user-desactives/liste-user-desactives.component';
+import { SuccessComponent } from './success/success.component';
+import { ListpaiementsComponent } from './listpaiements/listpaiements.component';
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'user', component: BoardUserComponent },
+  { path: 'user', component: BoardUserComponent,canActivate: [AuthGuard], data: { requiredRoles: ['ROLE_USER'] } },
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent,canActivate: [AuthGuard], data: { requiredRoles: ['ROLE_ADMIN'] } },
   { path: 'totp', component: TotpComponent },
@@ -83,6 +86,9 @@ const routes: Routes = [
   { path: 'add-produit', component:AddProduitComponent},
   { path: 'add-produit/:id', component:AddProduitComponent},
   { path: 'chart', component:ChartComponent},
+  { path: 'success', component: SuccessComponent },
+  { path: 'cancel', component: SuccessComponent },
+  {path:"listpaiements",component:ListpaiementsComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

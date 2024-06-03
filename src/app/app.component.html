@@ -1,5 +1,5 @@
 <app-sidebar *ngIf="showAdminBoard" ></app-sidebar>
-  <header *ngIf="!showAdminBoard" >
+  <header *ngIf="!showAdminBoard"  >
     <div class="logo">
         <a href="/">
             <img src="../assets/img/logo_mae.png" width="200" height="50" alt="MAE Assurances">
@@ -14,13 +14,15 @@
             </li>
             <li *ngIf="isLoggedIn && !showAdminBoard">
                 <a href="/contact" routerLink="contact">Contact</a>
-
             </li>
             <li *ngIf="isLoggedIn && !showAdminBoard">
                 <a href="/reclamation" routerLink="reclamation">Reclamation</a>
             </li>
             <li *ngIf="isLoggedIn && !showAdminBoard">
                 <a href="/my-reclamtions" routerLink="my-reclamations">Mes reclamations</a>
+            </li>
+            <li *ngIf="isLoggedIn && !showAdminBoard">
+                <a href="/user" routerLink="user">Dashboard</a>
             </li>
             <li ><a href="/contrat" *ngIf="isLoggedIn"  routerLink="contrat/{{id}}">contrat</a></li>
             <!-- Sign Up and Login visible only when not logged in -->

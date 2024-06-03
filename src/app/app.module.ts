@@ -59,6 +59,7 @@ import { ListboxModule } from 'primeng/listbox';
 import { ListeContactsComponent } from './liste-contacts/liste-contacts.component';
 import { ContactByIdComponent } from './contact-by-id/contact-by-id.component';
 import { ContratByIdComponent } from './contrat-by-id/contrat-by-id.component';
+import { SuccessComponent } from './success/success.component';
 import { ListeReclamationRefuseComponent } from './liste-reclamation-refuse/liste-reclamation-refuse.component';
 import { ListeReclamationAccepteComponent } from './liste-reclamation-accepte/liste-reclamation-accepte.component';
 import { ListeUserVerifieComponent } from './liste-user-verifie/liste-user-verifie.component';
@@ -66,6 +67,9 @@ import { ListeUserDesactivesComponent } from './liste-user-desactives/liste-user
 import { ListeUserNonVerifieComponent } from './liste-user-non-verifie/liste-user-non-verifie.component';
 import { Chart2Component } from './chart2/chart2.component';
 
+import{PanelMenuModule} from 'primeng/panelmenu';
+import { ListpaiementsComponent } from './listpaiements/listpaiements.component'; // Add this line
+ // Add this line
 
 @NgModule({
     declarations: [
@@ -112,6 +116,8 @@ import { Chart2Component } from './chart2/chart2.component';
         ListeUserVerifieComponent,
         ListeUserDesactivesComponent,
         ListeUserNonVerifieComponent,
+      SuccessComponent,
+      ListpaiementsComponent
     ],
     providers: [
         provideClientHydration(),
@@ -142,7 +148,8 @@ import { Chart2Component } from './chart2/chart2.component';
         PanelModule,
         ListboxModule,
         ChartComponent,
-        Chart2Component
+        Chart2Component,
+       PanelMenuModule
     ]
 })
 export class AppModule { }

@@ -1,0 +1,93 @@
+/* payment-details.component.css */
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+.payment-details {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.p-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.p-table thead th {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+.p-table tbody tr td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.p-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.p-table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.no-payments {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .p-table thead th, .p-table tbody tr td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .p-table thead th {
+        display: none;
+    }
+    
+    .p-table tbody tr {
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+    
+    .p-table tbody tr td {
+        padding: 10px;
+        border-bottom: none;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .p-table tbody tr td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        flex-basis: 40%;
+    }
+}
+

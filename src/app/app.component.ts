@@ -14,7 +14,6 @@ export class AppComponent implements OnInit, OnDestroy {
   private roles: string[] = [];
   isLoggedIn = false;
   showAdminBoard = false;
-  showModeratorBoard = false;
   username?: string;
   private userSubscription!: Subscription;
   user: any = {};
@@ -25,7 +24,7 @@ export class AppComponent implements OnInit, OnDestroy {
   userStorage: any = {};
 
   constructor(private router: Router, private tokenStorageService: TokenStorageService, private userService: UserService, private sanitizer: DomSanitizer) {
-    
+
    }
 
   ngOnInit(): void {
@@ -37,14 +36,12 @@ export class AppComponent implements OnInit, OnDestroy {
       if (user) {
         this.roles = user.roles;
         this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-        this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
         this.username = user.displayName;
         this.id = user.id;
       } else {
         // Reset view state when logged out
         this.roles = [];
         this.showAdminBoard = false;
-        this.showModeratorBoard = false;
         this.username = undefined;
         this.id = undefined;
       }

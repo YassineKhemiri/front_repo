@@ -10,6 +10,7 @@ export class BoardUserComponent implements OnInit {
 
   content !: string ;
 
+
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
@@ -21,6 +22,7 @@ export class BoardUserComponent implements OnInit {
         this.content = JSON.parse(err.error).message;
       }
     );
+
   }
 
 }

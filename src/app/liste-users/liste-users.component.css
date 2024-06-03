@@ -707,39 +707,56 @@ main .btn-send:hover {
 	padding: 20px;
 	background-color: #fff;
 	border-radius: 8px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-table {
-	width: 100%;
-	border-collapse: collapse;
-	margin-top: 20px;
-}
-
-th,
-td {
-	padding: 12px 15px;
-	text-align: left;
-	border-bottom: 1px solid #ddd;
-	font-size: 16px;
-	/* Changer la taille du texte des titres de colonnes */
-
-}
-
-th {
-	background-color: #f2f2f2;
-	color: #333;
-	font-size: 16px;
-	/* Changer la taille du texte des titres de colonnes */
-
+	/*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
 }
 
 .table-responsive {
-	overflow-x: auto;
+    overflow-x: auto;
+    border-radius: 8px; /* Adds rounded corners to the table container */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Subtle shadow for depth */
 }
 
-tr:nth-child(even) {
-	background-color: #f9f9f9;
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+    background-color: #fff; /* Light background for the table */
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid #e8e8e8; /* Lighter border for less visual weight */
+}
+
+th {
+    background-color:white; /* Green background for headers */
+    color: black; /* White text for headers */
+    font-size: 16px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Zebra striping for rows */
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1; /* Hover effect for rows */
+}
+
+/* Styling for pagination controls */
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+    background-color: #4CAF50;
+    color: #ffffff;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page {
+    border-color: #4CAF50; /* Borders for pagination buttons */
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page:hover {
+    background-color: #367c2b; /* Darker green on hover */
+    color: #ffffff;
 }
 
 .paye {
@@ -814,3 +831,10 @@ tr:nth-child(even) {
 .containerReclamation form button:hover {
 	background-color: #3e8155;
 }
+.user-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+

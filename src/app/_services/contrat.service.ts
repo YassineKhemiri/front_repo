@@ -34,12 +34,27 @@ export class ContratService {
       .pipe(map((d: Array<ITypePercentage>) => d));
   }
 
-  
+
   getContratByProduit(): Observable<any> {
     return this.http.get(AppConstants.CONTRAT_URL+"countByProduit", httpOptions);
   }
 
-  createPaymentSession(contratId: number): Observable<string> {
-    return this.http.post<string>(AppConstants.CONTRAT_URL + `pay/${contratId}`, {}, { responseType: 'text' as 'json' });
+  createPaymentSession(contratId: number): Observable<any> {
+    return this.http.post<any>(AppConstants.CONTRAT_URL + `pay/${contratId}`, {}, httpOptions);
+  }
+
+  updatePaymentStatus(sessionId: string, success: boolean): Observable<any> {
+    return this.http.post<any>(AppConstants.CONTRAT_URL + 'update-payment-status', { sessionId, success }, httpOptions);
+  }
+
+  getExpiredContracts(userId: number): Observable<any> {
+    return this.http.get<any>(AppConstants.CONTRAT_URL + `expired-contracts/${userId}`, httpOptions);
+  }
+
+  renewContract(contratId: number): Observable<any> {
+    return this.http.post<any>(AppConstants.CONTRAT_URL + `renew-contract/${contratId}`, {}, httpOptions);
+  }
+  getPaymentsByUserId(userId: number): Observable<any> {
+    return this.http.get(AppConstants.CONTRAT_URL+ `payments/${userId}`);
   }
 }

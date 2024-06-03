@@ -117,7 +117,7 @@ export class LoginComponent implements OnInit {
           });
         });
       } else   {
-        this.router.navigate(['/home']).then(() => {
+        this.router.navigate(['/user']).then(() => {
           Swal.fire({
             icon: 'success',
             title: 'Connexion réussie',
@@ -127,7 +127,7 @@ export class LoginComponent implements OnInit {
           window.location.reload();
         });
       }
-    
+
   }
 
 }
