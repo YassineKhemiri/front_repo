@@ -1,6 +1,7 @@
-<button type="button" style="margin-top:80px;margin-left:92%;" class="btn btn-primary" (click)="generatePdf()">Imprimer <i class="bi bi-printer-fill"></i></button>
+<button type="button" style="margin-top:80px;margin-left:92%;" class="btn btn-primary" (click)="generatePdf()">Imprimer
+    <i class="bi bi-printer-fill"></i></button>
 <div class="invoice-box" id="theContent">
-    <table cellpadding="0" cellspacing="0"> 
+    <table cellpadding="0" cellspacing="0">
         <tr class="top_rw">
             <td colspan="2">
                 <!-- <td>{{contrat.numContrat}}</td>
@@ -12,7 +13,7 @@
                 <td>{{contrat.date_paiement}}</td>
                 <td>{{contrat.referencement}}</td> -->
                 <h2 style="margin-bottom: 0px;"> Num contrat :{{contrat.numContrat}} </h2>
-                <span style="">Ref :{{contrat.referencement}} </span>
+                <span >Ref :{{contrat.referencement}} </span>
             </td>
             <td style="width:30%; margin-right: 10px;">
                 code branche :{{contrat.branche.codeBranche}}
@@ -25,7 +26,7 @@
                         <td>
                             <b> Mae Assurance</b> <br>
                             Le présent contrat d'assurance constitue un accord légal entre l'assureur,
-                            [Nom de l'Assureur], et l'assuré, {{contrat.user.displayName}}.
+                            [Nom de l'Assureur], et l'assuré, {{contrat.user.nom}} {{contrat.user.prenom}}.
                             Ce document définit les termes,
                             du paiement des primes convenues. <br>
                             conditions, couvertures et exclusions applicables
@@ -46,7 +47,8 @@
                 <table>
                     <tr>
                         <td colspan="2">
-                            <b> Risques Couverts : </b> Incendie
+                            <b> Risques Couverts : </b> <br>
+                            {{contrat.garantie.lesGaranties}}
                             <br>
                             Vol et Vandalisme
                             <br>
@@ -56,13 +58,15 @@
                             <br>
                             Bris de glace
                         </td>
-                        <td> <b> Limites de Couverture :</b>
-                            Incendie : jusqu'à 100,000 €<br>
-                            Vol et Vandalisme : jusqu'à 50,000 €<br>
-                            Dégâts des eaux : jusqu'à 20,000 €<br>
-                            Catastrophes naturelles : jusqu'à 100,000 €
-                        </td>
                     </tr>
+                </table>
+                <table>
+                    <td> <b> Limites de Couverture :</b><br>
+                        {{contrat.exclusion.lesExclusions}}<br>
+                        Vol et Vandalisme : jusqu'à 50,000 €<br>
+                        Dégâts des eaux : jusqu'à 20,000 €<br>
+                        Catastrophes naturelles : jusqu'à 100,000 €
+                    </td>
                 </table>
             </td>
         </tr>
@@ -84,7 +88,7 @@
                     <td style="width:15%; text-align:right;">
                         date paiement
                     </td>
-                    
+
                 </tr>
                 <tr class="item">
                     <td style="width:25%;">
@@ -102,9 +106,9 @@
                     <td style="width:15%; text-align:right;">
                         {{contrat.date_paiement | date: 'dd/MM/yyyy'}}
                     </td>
-                    
+
                 </tr>
-                
+
             </table>
         </td>
         <tr>

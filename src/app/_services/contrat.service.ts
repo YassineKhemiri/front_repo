@@ -33,6 +33,12 @@ export class ContratService {
       .get<Array<ITypePercentage>>(AppConstants.CONTRAT_URL+"PercentageByBranche", httpOptions)
       .pipe(map((d: Array<ITypePercentage>) => d));
   }
+
+  
+  getContratByProduit(): Observable<any> {
+    return this.http.get(AppConstants.CONTRAT_URL+"countByProduit", httpOptions);
+  }
+
   createPaymentSession(contratId: number): Observable<string> {
     return this.http.post<string>(AppConstants.CONTRAT_URL + `pay/${contratId}`, {}, { responseType: 'text' as 'json' });
   }

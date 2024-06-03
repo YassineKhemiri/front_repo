@@ -9,7 +9,7 @@
     <div class="data">
       <div class="content-data">
         <div class="containerListe">
-          <h1>Liste reclamations</h1>
+          <h1>Liste reclamations Refusés</h1>
           <p-table [value]="reclamations" responsiveLayout="scroll">
             <ng-template pTemplate="header">
               <tr>
@@ -29,8 +29,9 @@
                 <td>{{ reclamation.sujet }}</td>
                 <td>{{ reclamation.status }}</td>
                 <td>
-                  <button pButton type="button" icon="pi pi-check" (click)="updateStatus(reclamation.id, 'APPROVED')" tooltip="Approve"></button>
+                  <!-- <button pButton type="button" icon="pi pi-check" (click)="updateStatus(reclamation.id, 'APPROVED')" tooltip="Approve"></button>
                   <button pButton type="button" icon="pi pi-times" (click)="updateStatus(reclamation.id, 'DENIED')" tooltip="Deny"></button>
+                  <button pButton type="button" icon="pi pi-clock" (click)="updateStatus(reclamation.id, 'PENDING')" tooltip="Set as Pending"></button> -->
                   <button pButton type="button" icon="pi pi-download" (click)="downloadFile(reclamation.id)" tooltip="Download File"></button>
                 </td>
               </tr>

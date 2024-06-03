@@ -16,6 +16,9 @@ export class SidebarComponent implements OnInit, OnDestroy {
   showModeratorBoard = false;
   username?: string;
   userSubscription!: Subscription;
+  showUsersDropdown: boolean = false;
+  showReclamationsDropdown: boolean = false;
+
 
   constructor(
     private tokenStorageService: TokenStorageService,
@@ -44,6 +47,16 @@ export class SidebarComponent implements OnInit, OnDestroy {
       err => this.content = JSON.parse(err.error).message
     );
   }
+
+  toggleUsersDropdown() {
+    this.showUsersDropdown = !this.showUsersDropdown;
+  }
+
+  toggleReclamationsDropdown() {
+    this.showReclamationsDropdown = !this.showReclamationsDropdown;
+  }
+
+
 
   logout(): void {
     this.tokenStorageService.signOut();

@@ -91,6 +91,7 @@ export class UpdatePasswordComponent {
             text: 'Votre mot de passe a été changé avec succès',
             confirmButtonColor: '#3085d6'
           });
+          this.router.navigate(['/profile']);
         },
         error: err => {
           console.error('Failed to change password', err);

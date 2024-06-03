@@ -48,12 +48,12 @@
                         
                         <div style="color: red;"
                             *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
-                            <small class="p-error"  *ngIf="registerForm.controls['password'].errors?.['required']">Le nouveau mot de passe est requis.</small>
-                            <small class="p-error"  *ngIf="registerForm.controls['password'].errors?.['minlength']">Le mot de passe doit contenir au moins 6 caractères.</small><br>
-                            <small class="p-error"  *ngIf="registerForm.controls['password'].errors?.['pattern']?.lowercase">Le mot de passe doit contenir au moins une lettre minuscule.</small><br>
-                            <small class="p-error" *ngIf="registerForm.controls['password'].errors?.['pattern']?.uppercase">Le mot de passe doit contenir au moins une lettre majuscule.</small><br>
-                            <small class="p-error"  *ngIf="registerForm.controls['password'].errors?.['pattern']?.number">Le mot de passe doit contenir au moins un chiffre.</small><br>
-                            <small class="p-error" *ngIf="registerForm.controls['password'].errors?.['pattern']?.specialChar">Le mot de passe doit contenir au moins un caractère spécial.</small>
+                            <div><small class="p-error"  *ngIf="registerForm.controls['password'].errors?.['required']">Le nouveau mot de passe est requis.</small></div>
+                            <div><small class="p-error"  *ngIf="registerForm.controls['password'].errors?.['minlength']">Le mot de passe doit contenir au moins 6 caractères.</small></div>
+                            <div><small class="p-error"  *ngIf="registerForm.controls['password'].errors?.['pattern']?.lowercase">Le mot de passe doit contenir au moins une lettre minuscule.</small></div>
+                            <div><small class="p-error" *ngIf="registerForm.controls['password'].errors?.['pattern']?.uppercase">Le mot de passe doit contenir au moins une lettre majuscule.</small></div>
+                            <div><small class="p-error"  *ngIf="registerForm.controls['password'].errors?.['pattern']?.number">Le mot de passe doit contenir au moins un chiffre.</small></div>
+                            <div><small class="p-error" *ngIf="registerForm.controls['password'].errors?.['pattern']?.specialChar">Le mot de passe doit contenir au moins un caractère spécial.</small></div>
                         </div>
                     </div>
                     

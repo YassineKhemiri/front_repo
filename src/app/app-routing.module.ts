@@ -23,6 +23,8 @@ import { AgenceComponent } from './agence/agence.component';
 import { ListeContratComponent } from './liste-contrat/liste-contrat.component';
 import { ListeUsersComponent } from './liste-users/liste-users.component';
 import { ListeReclamationsComponent } from './liste-reclamations/liste-reclamations.component';
+import { ListeReclamationAccepteComponent } from './liste-reclamation-accepte/liste-reclamation-accepte.component';
+import { ListeReclamationRefuseComponent } from './liste-reclamation-refuse/liste-reclamation-refuse.component';
 import { AddBrancheComponent } from './add-branche/add-branche.component';
 import { ListeBranchesComponent } from './liste-branches/liste-branches.component';
 import { ListeProduitsComponent } from './liste-produits/liste-produits.component';
@@ -34,6 +36,9 @@ import { ReclamtionuserComponent } from './reclamtionuser/reclamtionuser.compone
 import { ListeContactsComponent } from './liste-contacts/liste-contacts.component';
 import { ContactByIdComponent } from './contact-by-id/contact-by-id.component';
 import { ContratByIdComponent } from './contrat-by-id/contrat-by-id.component';
+import { ListeUserVerifieComponent } from './liste-user-verifie/liste-user-verifie.component';
+import { ListeUserNonVerifieComponent } from './liste-user-non-verifie/liste-user-non-verifie.component';
+import { ListeUserDesactivesComponent } from './liste-user-desactives/liste-user-desactives.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
@@ -61,7 +66,12 @@ const routes: Routes = [
   { path: 'my-reclamations', component: ReclamtionuserComponent,canActivate: [AuthGuard], data: { requiredRoles: ['ROLE_USER'] } },
   { path: 'listeContrats', component:ListeContratComponent },
   { path: 'listeAdherent', component:ListeUsersComponent },
+  {path :'listeUsersVerifie', component: ListeUserVerifieComponent},
+  {path :'listeUserNonVerifie', component: ListeUserNonVerifieComponent},
+  {path:'listeUsersDesactives', component:ListeUserDesactivesComponent},
   { path: 'listeReclamation', component:ListeReclamationsComponent},
+  { path: 'listeReclamationAccepte', component:ListeReclamationAccepteComponent},
+  { path: 'listeReclamationRefuse', component:ListeReclamationRefuseComponent},
   { path: 'listeProduit', component:ListeProduitsComponent},
   { path: 'listeContact', component:ListeContactsComponent},
   { path: 'getContact/:id', component:ContactByIdComponent },

@@ -36,7 +36,12 @@
 	<div class="profile-details">
 		<div class="detail-item">
 			<span class="label">Nom:</span>
-			<span class="value">{{User.displayName}}</span>
+			<span class="value">{{User.nom}}</span>
+			<a href="updateInformations" routerLink="../updateInformations" class="edit-icon"><i class="fas fa-edit"></i></a>
+		</div>
+		<div class="detail-item">
+			<span class="label">Prenom:</span>
+			<span class="value">{{User.prenom}}</span>
 			<a href="updateInformations" routerLink="../updateInformations" class="edit-icon"><i class="fas fa-edit"></i></a>
 		</div>
 		<div class="detail-item">
@@ -63,6 +68,14 @@
 			<a href="" routerLink="../updatePassword" class="change-password">
 				<span class="change-password-text">Changer le mot de passe</span>
 				<i class="fas fa-lock change-password-icon"></i>
+			</a>
+		</div>
+
+		<div class="detail-item">
+			<a href="" routerLink="" (click)="desactiverCompte()" class="change-password">
+				<span class="change-password-text">Dasactiver compte</span>
+				<i class="fa-solid fa-triangle-exclamation change-password-icon"></i>
+				<!-- <i class="fas fa-lock change-password-icon"></i> -->
 			</a>
 		</div>
 	</div>

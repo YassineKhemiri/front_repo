@@ -112,7 +112,7 @@ export class LoginComponent implements OnInit {
           Swal.fire({
             icon: 'success',
             title: 'Connexion réussie',
-            text: `Bienvenue Admin ${this.currentUser.displayName}`,
+            text: `Bienvenue Admin `,
             confirmButtonColor: '#28a745'
           });
         });
@@ -121,7 +121,7 @@ export class LoginComponent implements OnInit {
           Swal.fire({
             icon: 'success',
             title: 'Connexion réussie',
-            text: `Bienvenue ${this.currentUser.displayName}`,
+            text: `Bienvenue ${this.currentUser.nom}, ${this.currentUser.prenom}`,
             confirmButtonColor: '#28a745'
           });
           window.location.reload();

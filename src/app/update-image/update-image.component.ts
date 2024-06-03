@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../_services/user.service';
 import { NgForm } from '@angular/forms';
 import { TokenStorageService } from '../_services/token-storage.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-update-image',
@@ -41,7 +42,14 @@ export class UpdateImageComponent {
       this.userService.changeImage(this.currentFile).subscribe({
         next: response => {
           console.log('Image Changed successfully', response);
-          alert('Image changed successfully');
+          //alert('Image changed successfully');
+          Swal.fire({
+            icon: 'success',
+            title: 'Enregistré!',
+            text: 'photo Enregistré avec succès !',
+            confirmButtonColor: '#3085d6'
+          });
+          this.router.navigate(['/profile']);
         },
         error: error => {
           console.error('Failed to change Image', error);

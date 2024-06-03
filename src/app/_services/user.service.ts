@@ -65,9 +65,10 @@ export class UserService {
   }
 
 
-  changeData(name: any, address: any, email: any, sex: any, date: any): Observable<any> {
+  changeData(nom: any,prenom:any, address: any, email: any, sex: any, date: any): Observable<any> {
     const formData: FormData = new FormData();
-    formData.append('name', name);
+    formData.append('nom', nom);
+    formData.append('prenom', prenom);
     formData.append('address', address);
     formData.append('email', email);
     formData.append('sex', sex);
@@ -81,6 +82,15 @@ export class UserService {
     return this.http.get(AppConstants.API_URL + `getUserById/${id}`, httpOptions);
   }
 
+
+
+  desactiverUser(user :any): Observable<any> {
+    return this.http.put(AppConstants.API_URL+"desactiverUser",user, httpOptions);
+  }
+
+  ReactiverUser(user :any): Observable<any> {
+    return this.http.put(AppConstants.API_URL+"reactiverUser",user, httpOptions);
+  }
 
 
 

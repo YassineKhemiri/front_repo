@@ -3,6 +3,7 @@ import { UserService } from '../_services/user.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { TokenStorageService } from '../_services/token-storage.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-update-informations',
@@ -33,10 +34,17 @@ export class UpdateInformationsComponent {
       return;
     }
     if (this.user) {
-      this.userService.changeData(this.user.displayName,this.user.email,this.user.address,this.user.sex,this.user.birth_date).subscribe({
+      this.userService.changeData(this.user.nom,this.user.prenom,this.user.email,this.user.address,this.user.sex,this.user.birth_date).subscribe({
         next: response => {
           console.log('Data Changed successfully', response);
-          alert('Data changed successfully');
+          //alert('Data changed successfully');
+          Swal.fire({
+            icon: 'success',
+            title: 'Enregistré!',
+            text: 'données Enregistré avec succès !',
+            confirmButtonColor: '#3085d6'
+          });
+          this.router.navigate(['/profile']);
         },
         error: error => {
           console.error('Failed to change Data', error);

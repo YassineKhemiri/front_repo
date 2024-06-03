@@ -7,6 +7,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 import { ITypePercentage } from '../interface/count.interface';
 import { ContratService } from '../_services/contrat.service';
 import { ProduitService } from '../_services/produit.service';
+import { ReclamtionService } from '../_services/reclamtion.service';
 
 
 
@@ -30,8 +31,9 @@ export class BoardAdminComponent implements OnInit {
   users: any
   contrats: any
   produits: any
+  reclamations: any
 
-  constructor(private userService: UserService,private produitService: ProduitService, private contratService: ContratService) { }
+  constructor(private userService: UserService,private produitService: ProduitService, private contratService: ContratService,private reclamationService:ReclamtionService) { }
 
   //doughnutChartData: any[] = [];
   //doughnutChartLabels : any[] = [];
@@ -52,14 +54,7 @@ export class BoardAdminComponent implements OnInit {
         console.log(this.tab.count);
         console.log(this.tab.branche);
 
-        /* d.forEach((typeCount: ITypePercentage) => {
-          console.log(typeCount.count);
-          console.log(typeCount.branche);
-          this.data=typeCount.count;
-          this.label=typeCount.branche.libelleBranche;
-          this.doughnutChartData.push(typeCount.count);
-          this.doughnutChartLabels.push(typeCount.branche.libelleBranche);
-        }); */
+        
       },
       (error) => {
         console.error(error);
@@ -76,9 +71,20 @@ export class BoardAdminComponent implements OnInit {
       }
     )
 
+    this.reclamationService.getAllReclamations().subscribe(
+      (result) => {
+        this.reclamations = result.length;
+      },
+      (error) => {
+        console.error(error);
+      }
+    )
+
+
+
     this.userService.getAllUsers().subscribe(
       (r) => {
-        this.users = r.length;
+        this.users = r.length-1;
 
       },
       (error) => {
